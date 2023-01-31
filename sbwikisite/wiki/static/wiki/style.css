@@ -1,0 +1,109 @@
+#expAll{
+    margin:20px;
+    padding:7px;
+    float: right;
+
+}
+
+.chip {
+    display: inline-block;
+    padding: 0 25px;
+    height: 50px;
+    font-size: 16px;
+    line-height: 50px;
+    border-radius: 25px;
+    background-color: #596b78;
+    color:#fff;
+    margin: 10px;
+}
+  
+.chip img {
+    float: left;
+    margin: 0 10px 0 -25px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color:#1095c1 ;
+}
+
+.sub-header{
+    font-size: 1.5em;   
+}
+
+h4{
+    margin-bottom: 0px;
+}
+
+b{
+    font-size: 1.5em;
+    color:#fff;
+}
+
+
+
+.card {
+    
+    box-shadow: 0 4px 8px 0 rgba(0, 159, 252, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #596b78;
+    margin: 10px;
+    flex: 1 1 20%;
+    max-width: 350px;
+}
+
+.card b {
+    font-size: 1em;
+    color:#fff;
+
+
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 159, 252, 0.2);
+  }
+
+  /* Add some padding inside the card container */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+
+.sticky {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    background-color: #596b78;
+  }
+
+
+
+  /* Nav Bar Stuff  */
+
+  .topnav {
+    overflow: hidden;
+    background-color: #596b78;
+  }
+  
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #1095c1;
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: #1095c1;
+    color: white;
+  }

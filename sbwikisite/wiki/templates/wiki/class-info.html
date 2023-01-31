@@ -1,0 +1,198 @@
+{%  extends "wiki/layout.html" %}
+
+{% load static %}
+
+{% block body %}
+
+<main class="container">
+
+    <h1>{{game_class.name_text}}</h1>
+
+    <blockquote>
+        {{game_class.description|linebreaks}}
+        <footer>
+          <cite>- Lore</cite>
+        </footer>
+    </blockquote>
+    
+
+    <div style="overflow: hidden;">
+        <a href="#" id="expAll" role="button" class="secondary">Minimize All</a>
+    </div>
+    
+    <details open>
+        <summary> <b>Base Class</b> </summary>
+        {% if base_class_list %}
+        <div class="">
+        {% for base in base_class_list %}
+
+            <div class="chip">
+                <a href="/wiki/base-class/{{base.basekey.name_text}}" class="contrast">
+                    <img src="/wiki/{{base.basekey.icon}}" alt="Class Icon" width="96" height="96">
+                    {{ base.basekey.name_text }}
+                </a>
+            </div>
+        {% endfor %}
+        </div>
+        {% else %}
+            <p>No classes are available.</p>
+        {% endif %}
+    </details>
+
+    <details open>
+        <summary> <b>Races</b> </summary>
+        {% if race_list %}
+        <div class="">
+        {% for race in race_list %}
+
+            <div class="chip">
+
+                <a href="/wiki/race/{{race.racekey.name_text}}" class="contrast">
+                    <img src="/wiki/{{race.racekey.icon}}" alt="Race Icon" width="96" height="96">
+                    {{ race.racekey.name_text }}
+                </a>
+                </div>
+        {% endfor %}
+        </div>
+        {% else %}
+            <p>No races are available.</p>
+        {% endif %}
+    </details>
+
+    
+    <details open>
+        <summary> <b>Disciplines</b> </summary>
+        {% if disc_list %}
+        <div class="">
+        {% for disc in disc_list %}
+
+            <div class="chip">
+                <a href="/wiki/discipline/{{disc.disckey.name_text}}" class="contrast">
+                    <img src="/wiki/{{ disc.disckey.icon}}" alt="Disc Icon" width="96" height="96">
+                    {{ disc.disckey.name_text }}
+                </a>
+            </div>
+        {% endfor %}
+        </div>
+        {% else %}
+            <p>No disciplines are available.</p>
+        {% endif %}
+    </details>
+    
+    <details open>
+        <summary> <b>Granted Skill Lines</b> </summary>
+        {% if skill_list %}
+        <div class="">
+        {% for skill in skill_list %}
+
+            <div class="chip">
+                <img src="/wiki/{{ skill.skillkey.icon}}" alt="Skill Icon" width="96" height="96">
+                {{ skill.skillkey.name_text }} | 
+                Level {{ skill.skillkey.level_granted }}
+                </div>
+        {% endfor %}
+        </div>
+        {% else %}
+            <p>No disciplines are available.</p>
+        {% endif %}
+    </details>
+    
+
+    <details open>
+        <summary> <b>Weapon Powers</b> </summary>
+        {% if wp_list %}
+        <div class="">
+        {% for key, value in wp_list.items %}
+            <div class="sub-header">{{key}}</div>
+            {% for wp in value %}
+                <div class="chip">
+                    <img src="/wiki/{{ wp.weaponkey__icon}}" alt="Weapon Power Icon">
+                    {{ wp.weaponkey__name_text }}: {{wp.power_level}}
+                </div>
+            {% endfor %}
+        {% endfor %}
+        </div>
+        {% else %}
+            <p>No Powers are available.</p>
+        {% endif %}
+    </details>
+
+
+    <details open>
+        <summary> <b>Stances</b> </summary>
+        {% if stance_list %}
+        <div class="">
+            {% for key, value in stance_list.items %}
+            <div class="sub-header">{{key}}</div>
+            {% for wp in value %}
+                <div class="chip">
+                    <img src="/wiki/{{ wp.icon}}" alt="Stance Icon" width="96" height="96">
+                    {{ wp.name_text }}: {{wp.powerlevel}}
+                </div>
+            {% endfor %}
+        {% endfor %}
+        </div>
+        {% else %}
+            <p>No Stances are available.</p>
+        {% endif %}
+    </details>
+    
+
+
+    <details open>
+        <summary> <b>Abilites</b> </summary>
+        {% if ab_list %}
+        <div class="card-container">
+        {% for ab in ab_list %}
+
+            <div class="card">
+                <img src="/wiki/{{ab.icon}}" alt="Abilitiy Icon" >
+                <div class="">
+                    <b>{{ ab.name_text }}</b>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>Level</th><td>{{ab.granted_level}}</td>
+                            </tr>
+                            <tr>
+                                <th>Granted Rank</th><td>{{ab.granted_rank}}</td>
+                            </tr>
+                            <tr>
+                                <th>Type</th><td>{{ab.type}}</td>
+                            </tr>
+                            <tr>
+                                <th>Cost</th><td>{{ab.cost}}</td>
+                            </tr>
+                            <tr>
+                                <th>Cast Time</th><td>{{ab.cast_time}}</td>
+                            </tr>
+                            <tr>
+                                <th>Cooldown</th><td>{{ab.cooldown}}</td>
+                            </tr>
+                            <tr>
+                                <th>Hitroll</th><td>{{ab.hitroll}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>{{ab.description}}</p>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+        {% else %}
+            <p>No Abilities are available.</p>
+        {% endif %}
+    </details>
+    
+    
+    
+
+
+
+</main>
+  
+{% endblock %}
+    
+
+
+

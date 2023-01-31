@@ -1,0 +1,17 @@
+Install intructions
+
+1) install latest version of python, run: py -3.x venv sbwiki
+ to create a new virtual environment
+
+2) To run virtual environment use:
+    windows: sbwiki\Scripts\activate.bat
+    linux: source sbwiki/bin/activate
+
+3) use pip to install require packages. Django, 
+
+4) to create project use django-admin startproject sbwikisite
+
+5) to run local server, cd into the sbwikisite and then run: python manage.py runserver
+
+6) to create and app for the project cd into the same directory as manage.py and run: python manage.py startapp wiki
+

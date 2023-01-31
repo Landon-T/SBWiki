@@ -1,0 +1,106 @@
+{%  extends "wiki/layout.html" %}
+
+{% load static %}
+
+{% block body %}
+
+<main class="container">
+
+    <h1>{{base_class.name_text}}</h1>
+
+    <blockquote>
+        {{base_class.description|linebreaks}}
+        <footer>
+          <cite>- Lore</cite>
+        </footer>
+    </blockquote>
+    
+
+    <div style="overflow: hidden;">
+        <a href="#" id="expAll" role="button" class="secondary">Minimize All</a>
+    </div>
+    
+    <details open>
+        <summary> <b>Classes</b> </summary>
+        {% if class_list %}
+        <div class="">
+        {% for class in class_list %}
+
+            <div class="chip">
+                <a href="/wiki/class/{{class.classkey.name_text}}" class="contrast">
+                    <img src="/wiki/{{class.classkey.icon}}" alt="Class Icon" width="96" height="96">
+                    {{ class.classkey.name_text }}
+                </a>
+
+            </div>
+        {% endfor %}
+        </div>
+        {% else %}
+            <p>No class restrictions.</p>
+        {% endif %}
+    </details>
+
+    <details open>
+        <summary> <b>Effects</b> </summary>
+        
+        {{base_class.effects|linebreaks}}
+
+    </details>
+
+    <details open>
+        <summary> <b>Abilites</b> </summary>
+        {% if ab_list %}
+        <div class="card-container">
+        {% for ab in ab_list %}
+
+            <div class="card">
+                <img src="/wiki/{{ab.icon}}" alt="Abilitiy Icon" >
+                <div class="">
+                    <b>{{ ab.name_text }}</b>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>Level</th><td>{{ab.granted_level}}</td>
+                            </tr>
+                            <tr>
+                                <th>Granted Rank</th><td>{{ab.granted_rank}}</td>
+                            </tr>
+                            <tr>
+                                <th>Type</th><td>{{ab.type}}</td>
+                            </tr>
+                            <tr>
+                                <th>Cost</th><td>{{ab.cost}}</td>
+                            </tr>
+                            <tr>
+                                <th>Cast Time</th><td>{{ab.cast_time}}</td>
+                            </tr>
+                            <tr>
+                                <th>Cooldown</th><td>{{ab.cooldown}}</td>
+                            </tr>
+                            <tr>
+                                <th>Hitroll</th><td>{{ab.hitroll}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>{{ab.description}}</p>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+        {% else %}
+            <p>No Abilities are available.</p>
+        {% endif %}
+    </details>
+    
+    
+    
+
+
+
+</main>
+  
+{% endblock %}
+    
+
+
+

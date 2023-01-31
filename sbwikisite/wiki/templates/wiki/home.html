@@ -1,0 +1,66 @@
+{%  extends "wiki/layout.html" %}
+
+{% load static %}
+
+{% block body %}
+<main class="container">
+    <h1>Play To Crush</h1>
+
+    <h2>Classes</h2>
+    {% if class_list %}
+    <div class="">
+    {% for class in class_list %}
+        <div class="chip">
+            <a href="/wiki/class/{{class.name_text}}" class="contrast">
+                <img src="/wiki/{{class.icon}}" alt="Class Icon" width="96" height="96">
+                {{ class.name_text }}
+            </a>
+        </div>
+    {% endfor %}
+    </div>
+    {% else %}
+        <p>No classes are available.</p>
+    {% endif %}
+
+    <h2>Disciplines</h2>
+    {% if disc_list %}
+    <div class="">
+    {% for disc in disc_list %}
+        <div class="chip">
+            <a href="/wiki/discipline/{{disc.name_text}}" class="contrast">
+                <img src="/wiki/{{disc.icon}}" alt="Disc Icon" width="96" height="96">
+                {{ disc.name_text }}
+            </a>
+        </div>
+    {% endfor %}
+    </div>
+    {% else %}
+        <p>No classes are available.</p>
+    {% endif %}
+
+
+    <h2>Races</h2>
+    {% if race_list %}
+    <div class="">
+    {% for race in race_list %}
+        <div class="chip">
+            <a href="/wiki/race/{{race.name_text}}" class="contrast">
+                <img src="/wiki/{{race.icon}}" alt="Race Icon" width="96" height="96">
+                {{ race.name_text }}
+            </a>
+        </div>
+    {% endfor %}
+    </div>
+    {% else %}
+        <p>No classes are available.</p>
+    {% endif %}
+
+</main>
+
+{% endblock %}
+
+
+
+{% block script %}
+
+{% endblock %}
